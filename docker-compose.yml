@@ -33,6 +33,10 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./frontend:/usr/src/app
+      # Dockern内にマウントさせない
+      - ./frontend/node_modules
+      # ホストで直接起動 => node_modulesを使用、Docker内で起動 => docker-node_modulesを使用
+      - ./frontend/docker-node_modules:/usr/src/app/node_modules
     ports:
       - "8000:8000"
     tty: true
