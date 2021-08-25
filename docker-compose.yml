@@ -35,10 +35,12 @@ services:
       - ./frontend:/usr/src/app
       # - ./frontend/node_modules
       # ホストで直接起動 => node_modulesを使用、Docker内で起動 => docker-node_modulesを使用
-      # - ./frontend/docker-node_modules:/usr/src/app/node_modules
-    command: sh -c "yarn start"
+      - ./frontend/docker-node_modules:/usr/src/app/node_modules
+    command: sh -c "yarn install && yarn start"
     ports:
       - "8000:8000"
+    expose:
+      - "8000"
     tty: true
 volumes:
   mysql-data:
