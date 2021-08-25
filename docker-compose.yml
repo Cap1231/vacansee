@@ -31,7 +31,6 @@ services:
     build:
       context: ./frontend/
       dockerfile: Dockerfile
-    command: "yarn "
     volumes:
       - ./frontend:/usr/src/app
       # - ./frontend/node_modules
