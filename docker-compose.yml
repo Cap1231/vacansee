@@ -36,5 +36,6 @@ services:
       - /usr/src/app/node_modules
     ports:
       - "8000:8000"
+    tty: true
 volumes:
   mysql-data:
